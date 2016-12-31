@@ -6,6 +6,17 @@
   padding: 10px;
 }
 
+.results{
+  margin: auto;
+  width: 20%;
+  height: 15%;
+  border: 3px solid lightblue;
+  padding: 10px;
+  font-family: sans-serif;
+  color: lightblue;
+  font-size: 20px;
+}
+
 #sub-textbox{
     border: 3px inset red;
     outline:0;
