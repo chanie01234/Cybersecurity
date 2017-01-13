@@ -10,13 +10,15 @@
          <form class="formula" action="handler.php" method="post">
            Sub Total: $ <input type="text" name="sub-total" id="sub-textbox" value="0.00"><br>
            <br>
-
            Gratuity:
-           10% <input type="radio" name="percent"  value="0.10">
-           15% <input type="radio" name="percent"  value="0.15">
-           20% <input type="radio" name="percent"  value="0.20">
+           <?php
+           for ($i = 1; $i <= 3; $i++) {
+           ?>
+             <?php echo ($i * 5); ?>% <input type="radio" name="percent" value="<?php echo ($i * 5 * 0.01); ?>">
+           <?php
+           }
+           ?>
            <br><br>
-
            Share between: <input type="text" name="share-tip" id="share-textbox" value="1"> person(s)<br>
            <br>
            <input type="submit" name="submit-button" value="Calculate">
