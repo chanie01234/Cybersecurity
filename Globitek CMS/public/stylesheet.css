@@ -1,0 +1,9 @@
+#title{
+  font-family: monospace;;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.error{
+  color: red;
+}
