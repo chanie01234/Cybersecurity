@@ -1,36 +1,36 @@
 # Project 2 - Input/Output Sanitization
 
-Time spent: x hours spent in total
+Time spent: 23 hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-1\. [ ]  Required: Import the Starting Database
+1\. [x] Import the Starting Database
 
-2\. [ ]  Required: Set Up the Starting Code
+2\. [x] Set Up the Starting Code
 
-3\. [ ]  Required: Review code for Staff CMS for Users
+3\. [x] Review code for Staff CMS for Users
 
-4\. [ ]  Required: Complete Staff CMS for Salespeople
-  * [ ]  Required: index.php
-  * [ ]  Required: show.php
-  * [ ]  Required: new.php
-  * [ ]  Required: edit.php
+4\. Complete Staff CMS for Salespeople
+  * [x]  Required: index.php
+  * [x]  Required: show.php
+  * [x]  Required: new.php
+  * [x]  Required: edit.php
 
-5\. [ ]  Required: Complete Staff CMS for States
-  * [ ]  Required: index.php
-  * [ ]  Required: show.php
-  * [ ]  Required: new.php
-  * [ ]  Required: edit.php
+5\. Complete Staff CMS for States
+* [x]  Required: index.php
+* [x]  Required: show.php
+* [x]  Required: new.php
+* [x]  Required: edit.php
 
-6\. [ ]  Required: Complete Staff CMS for Territories
-  * [ ]  Required: index.php
-  * [ ]  Required: show.php
-  * [ ]  Required: new.php
-  * [ ]  Required: edit.php
+6\. Complete Staff CMS for Territories
+* [x]  Required: index.php
+* [x]  Required: show.php
+* [x]  Required: new.php
+* [x]  Required: edit.php
 
-7\. [ ]  Required: Add Data Validations
+7\. Add Data Validations
   * [ ]  Required: Validate that no values are left blank.
   * [ ]  Required: Validate that all string values are less than 255 characters.
   * [ ]  Required: Validate that usernames contain only the whitelisted characters.
@@ -38,13 +38,13 @@ The following **required** functionality is completed:
   * [ ]  Required: Validate that email addresses contain only whitelisted characters.
   * [ ]  Required: Add *at least 5* other validations of your choosing.
 
-8\. [ ]  Required: Sanitization
+8\. Sanitization
   * [ ]  Required: All input and dynamic output should be sanitized.
   * [ ]  Required: Sanitize dynamic data for URLs
   * [ ]  Required: Sanitize dynamic data for HTML
   * [ ]  Required: Sanitize dynamic data for SQL
 
-9\. [ ]  Required: Penetration Testing
+9\. Penetration Testing
   * [ ]  Required: Verify form inputs are not vulnerable to SQLI attacks.
   * [ ]  Required: Verify query strings are not vulnerable to SQLI attacks.
   * [ ]  Required: Verify form inputs are not vulnerable to XSS attacks.
@@ -79,7 +79,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Chantelle Levy]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
