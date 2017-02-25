@@ -19,7 +19,7 @@ if(is_post_request()) {
 
   $result = update_state($state);
   if($result === true) {
-    redirect_to('show.php?id=' . $state['id']);
+    redirect_to('show.php?id=' . u($state['id']));
   } else {
     $errors = $result;
   }
@@ -36,11 +36,11 @@ if(is_post_request()) {
   <!-- TODO add form -->
   <?php echo display_errors($errors); ?>
 
-  <form action="edit.php?id=<?php echo $state['id']; ?>" method="post">
+  <form action="" method="post">
     Name:<br />
-    <input type="text" name="name" value="<?php echo $state['name']; ?>" /><br />
+    <input type="text" name="name" value="<?php echo h($state['name']); ?>" /><br />
     Code:<br />
-    <input type="text" name="code" value="<?php echo $state['code']; ?>" /><br />
+    <input type="text" name="code" value="<?php echo h($state['code']); ?>" /><br />
     <br />
     <input type="submit" name="submit" value="Update"  />
   </form>

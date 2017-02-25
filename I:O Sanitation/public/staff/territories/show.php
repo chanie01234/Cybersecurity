@@ -8,14 +8,16 @@ $id = $_GET['id'];
 $territory_result = find_territory_by_id($id);
 // No loop, only one result
 $territory = db_fetch_assoc($territory_result);
-$state_id = $territory['state_id'];
+
+$state_id = find_state_by_id($territory['state_id']);
+$state = db_fetch_assoc($state_id);
 ?>
 
 <?php $page_title = 'Staff: Territory of ' . $territory['name']; ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="index.php">Back to State Details</a>
+  <a href="../states/show.php?id=<?php echo u($territory['state_id']); ?>">Back to State Details</a>
   <br />
 
   <h1>Territory: <?php echo $territory['name']; ?></h1>
