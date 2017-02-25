@@ -50,23 +50,20 @@
       $errors[] = "Please enter name of state. Cannot leave it blank";
     } elseif (!has_length($state['name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "State name must be between 2 and 255 characters";
-    } elseif (!has_valid_name_format($state['name'])) {
-			$errors[] = "Invalid format";
+      // ****CUSTOM****
+    } elseif (!preg_match('/^\A[a-zA-Z\s]+\Z$/',$state['name'])) {
+      $errors[] = "Name can only contain letters and whitespace";
+    }
 
       if (is_blank($state['code'])) {
       $errors[] = "Please enter state code. Cannot leave it blank";
+      // ****CUSTOM****
     } elseif (!has_length($state['code'], array('min' => 2, 'max' => 255))) {
       $errors[] = "state code must be between 2 and 255 characters";
-    } elseif (!has_valid_name_format($state['code'])) {
-			$errors[] = "Invalid format";
-		}
-    if (is_blank($state['country_id'])) {
-      $errors[] = "Please enter Country ID. Cannot leave it blank";
-    } elseif (!has_length($state['country_id'], array('max' => 255))) {
-      $errors[] = "Country ID must be less than or equal to 255 characters";
-    } elseif (!has_valid_number_format($state['country_id'])) {
-			$errors[] = "Invalid format";
-		}
+      // ****CUSTOM****
+    } elseif (!preg_match('/^\A[A-Z]+\Z$/',$state['code'])) {
+      $errors[] = "Code may only contain uppercase letters";
+    }
 
     return $errors;
   }
@@ -80,15 +77,13 @@
     if (!empty($errors)) {
       return $errors;
     }
-
+    $state['name'] = db_escape($db, $state['name']);
     // TODO add SQL
     $sql = "INSERT INTO states ";
-    $sql .= "(name, code, country_id) ";
+    $sql .= "(name, code) ";
     $sql .= "VALUES (";
-    $sql .= "'" . db_escape($db, $state['name']) . "',";
-    $sql .= "'" . db_escape($db, $state['code']) . "',";
-    $sql .= "'" . db_escape($db, $state['country_id']) . "'";
-    $sql .= ");";
+    $sql .= "'" . $state['name'] . "', ";
+    $sql .= "'" . $state['code'] . "');";
 
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);
@@ -115,11 +110,9 @@
 
     // TODO add SQL
     $sql = "UPDATE states SET ";
-    $sql .= "name='" . db_escape($db, $state['name']) . "', ";
-    $sql .= "code='" . db_escape($db, $state['code']) . "', ";
-    $sql .= "country_id='" . db_escape($db, $state['country_id']) . "' ";
-    $sql .= "WHERE id='" . db_escape($db, $state['id']) . "' ";
-    $sql .= "LIMIT 1;";
+    $sql .= "name='" . $state['name'] . "', ";
+    $sql .= "code='" . $state['code'] . "' ";
+    $sql .= "WHERE id='" . $state['id'] . "';";
 
     // For update_state statments, $result is just true/false
     $result = db_query($db, $sql);
@@ -173,14 +166,17 @@
       $errors[] = "please enter name of territory. It cannot be blank.";
     } elseif (!has_length($territory['name'], array('min' => 2, 'max' => 255))) {
       $errors[] = " Territory name must be between 2 and 255 characters.";
-    } elseif (!has_valid_name_format($territory['name'])) {
+      // ****CUSTOM****
+    } elseif (!preg_match('/^\A[a-zA-Z\s\']+\Z$/',$territory['name'])) {
 			$errors[] = "Invalid format. Please try again";
 		}
+
     if (is_blank($territory['position'])) {
       $errors[] = "please enter territory position. It cannot be blank.";
     } elseif (!has_length($territory['position'], array('max' => 255))) {
       $errors[] = "Territory position must be less than 255 characters.";
-    } elseif (!has_valid_number_format($territory['position'])) {
+      // ****CUSTOM****
+    } elseif (!preg_match('/^\A[0-9]+\Z$/',$territory['position'])) {
 			$errors[] = "Invalid format. Try again";
 		}
     return $errors;
@@ -195,15 +191,15 @@
     if (!empty($errors)) {
       return $errors;
     }
-
+    $territory['name'] = db_escape($db, $territory['name']);
+    $territory['state_id'] = db_escape($db, $territory['state_id']);
     // TODO add SQL
     $sql = "INSERT INTO territories ";
     $sql .= "(name, state_id, position) ";
     $sql .= "VALUES (";
-    $sql .= "'" . db_escape($db, $territory['name']) . "',";
-    $sql .= "'" . db_escape($db, $territory['state_id']) . "',";
-    $sql .= "'" . db_escape($db, $territory['position']) . "'";
-    $sql .= ");";
+    $sql .= "'" . $territory['name'] . "', ";
+    $sql .= "'" . $territory['state_id'] . "', ";
+    $sql .= "'" . $territory['position'] . "');";
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);
     if($result) {
@@ -226,14 +222,12 @@
     if (!empty($errors)) {
       return $errors;
     }
-
+    $territory['name'] = db_escape($db, $territory['name']);
     // TODO add SQL
    $sql = "UPDATE territories SET ";
-   $sql .= "name='" . db_escape($db, $territory['name']) . "', ";
-   $sql .= "state_id='" . db_escape($db, $territory['state_id']) . "', ";
-   $sql .= "position='" . db_escape($db, $territory['position']) . "' ";
-   $sql .= "WHERE id='" . db_escape($db, $territory['id']) . "' ";
-   $sql .= "LIMIT 1;";
+   $sql .= "name='" . $territory['name'] . "', ";
+   $sql .= "position='" . $territory['position'] . "' ";
+   $sql .= "WHERE id='" . $territory['id'] . "';";
     // For update_territory statments, $result is just true/false
     $result = db_query($db, $sql);
     if($result) {
@@ -289,27 +283,32 @@
       $errors[] = "Please enter salesperson's first name. It cannot be blank.";
     } elseif (!has_length($salesperson['first_name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "First name must be between 2 and 255 characters.";
-    } elseif (!has_valid_name_format($salesperson['first_name'])) {
+      // ****CUSTOM****
+    } elseif (!preg_match('/^\A[a-zA-Z\s\']+\Z$/',$salesperson['first_name'])) {
 			$errors[] = "Invalid format. Try again";
 		}
+
     if (is_blank($salesperson['last_name'])) {
       $errors[] = "Please enter salesperson's last name. It cannot be blank.";
     } elseif (!has_length($salesperson['last_name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "Last name must be between 2 and 255 characters.";
-    } elseif (!has_valid_name_format($salesperson['last_name'])) {
+      // ****CUSTOM****
+    } elseif (!preg_match('/^\A[a-zA-Z\s\']+\Z$/',$salesperson['last_name'])) {
 			$errors[] = "Invalid format.Try again";
 		}
+
     if (is_blank($salesperson['phone'])) {
       $errors[] = "Please enter salesperson's phone number. It cannot be blank.";
     } elseif (!has_length($salesperson['phone'], array('max' => 255))) {
       $errors[] = "Phone must be less than 255 characters.";
-    } elseif (!has_valid_phone_format($salesperson['phone'])) {
+    } elseif (!preg_match('/^[0-9\-()]+$/',$salesperson['phone'])) {
 			$errors[] = "Invalid format. please enter correct phone number";
 		}
+
     if (is_blank($salesperson['email'])) {
       $errors[] = "Please enter salesperson's email address. It cannot be blank.";
-    } elseif (!has_valid_email_format($salesperson['email'])) {
-      $errors[] = "Invalid email format. Please enter the proper format";
+    } elseif (!preg_match('/^[a-zA-Z0-9\_\@\.\-]+$/',$salesperson['email'])) {
+      $errors[] = "Invalid format. try again";
     }
     return $errors;
   }
@@ -333,7 +332,7 @@
     $sql .= "'" . db_escape($db, $salesperson['phone']) . "',";
     $sql .= "'" . db_escape($db, $salesperson['email']) . "'";
     $sql .= ");";
-    
+
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);
     if($result) {
@@ -445,7 +444,6 @@
   // Either returns true or an array of errors
   function insert_user($user) {
     global $db;
-
     $errors = validate_user($user);
     if (!empty($errors)) {
       return $errors;
@@ -455,11 +453,11 @@
     $sql = "INSERT INTO users ";
     $sql .= "(first_name, last_name, email, username, created_at) ";
     $sql .= "VALUES (";
-    $sql .= "'" . $user['first_name'] . "',";
-    $sql .= "'" . $user['last_name'] . "',";
-    $sql .= "'" . $user['email'] . "',";
-    $sql .= "'" . $user['username'] . "',";
-    $sql .= "'" . $created_at . "',";
+    $sql .= "'" . db_escape($db, $user['first_name']) . "',";
+    $sql .= "'" . db_escape($db, $user['last_name']) . "',";
+    $sql .= "'" . db_escape($db, $user['email']) . "',";
+    $sql .= "'" . db_escape($db, $user['username']) . "',";
+    $sql .= "'" . $created_at . "'";
     $sql .= ");";
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);
@@ -491,6 +489,7 @@
     $sql .= "username='" . $user['username'] . "' ";
     $sql .= "WHERE id='" . $user['id'] . "' ";
     $sql .= "LIMIT 1;";
+
     // For update_user statments, $result is just true/false
     $result = db_query($db, $sql);
     if($result) {
@@ -503,5 +502,4 @@
       exit;
     }
   }
-
 ?>
