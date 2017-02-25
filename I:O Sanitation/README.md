@@ -31,25 +31,25 @@ The following **required** functionality is completed:
 * [x]  Required: edit.php
 
 7\. Add Data Validations
-  * [ ]  Required: Validate that no values are left blank.
-  * [ ]  Required: Validate that all string values are less than 255 characters.
-  * [ ]  Required: Validate that usernames contain only the whitelisted characters.
-  * [ ]  Required: Validate that phone numbers contain only the whitelisted characters.
-  * [ ]  Required: Validate that email addresses contain only whitelisted characters.
-  * [ ]  Required: Add *at least 5* other validations of your choosing.
+  * [x]  Required: Validate that no values are left blank.
+  * [x]  Required: Validate that all string values are less than 255 characters.
+  * [x]  Required: Validate that usernames contain only the whitelisted characters.
+  * [x]  Required: Validate that phone numbers contain only the whitelisted characters.
+  * [x]  Required: Validate that email addresses contain only whitelisted characters.
+  * [x]  Required: Add *at least 5* other validations of your choosing.
 
 8\. Sanitization
-  * [ ]  Required: All input and dynamic output should be sanitized.
-  * [ ]  Required: Sanitize dynamic data for URLs
-  * [ ]  Required: Sanitize dynamic data for HTML
-  * [ ]  Required: Sanitize dynamic data for SQL
+  * [x]  Required: All input and dynamic output should be sanitized.
+  * [x]  Required: Sanitize dynamic data for URLs
+  * [x]  Required: Sanitize dynamic data for HTML
+  * [x]  Required: Sanitize dynamic data for SQL
 
 9\. Penetration Testing
-  * [ ]  Required: Verify form inputs are not vulnerable to SQLI attacks.
-  * [ ]  Required: Verify query strings are not vulnerable to SQLI attacks.
-  * [ ]  Required: Verify form inputs are not vulnerable to XSS attacks.
-  * [ ]  Required: Verify query strings are not vulnerable to XSS attacks.
-  * [ ]  Required: Listed other bugs or security vulnerabilities
+  * [x]  Required: Verify form inputs are not vulnerable to SQLI attacks.
+  * [x]  Required: Verify query strings are not vulnerable to SQLI attacks.
+  * [x]  Required: Verify form inputs are not vulnerable to XSS attacks.
+  * [x]  Required: Verify query strings are not vulnerable to XSS attacks.
+  * [x]  Required: Listed other bugs or security vulnerabilities
 
 
 The following advanced user stories are optional:
@@ -69,7 +69,7 @@ The following advanced user stories are optional:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/NQmKC7L.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
