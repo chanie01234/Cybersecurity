@@ -10,6 +10,7 @@ session_start([
     'cookie_httponly' => 1,
     'cookie_lifetime' => 86400,
     'use_only_cookies' => 1,
+    'cookie_secure' => 1
 ]);
 
 // Turns off any browser built-in XSS protections
