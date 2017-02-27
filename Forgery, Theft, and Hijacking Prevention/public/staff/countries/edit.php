@@ -1,6 +1,6 @@
 <?php
 require_once('../../../private/initialize.php');
-function require_login();
+require_login();
 
 if(!isset($_GET['id'])) {
   redirect_to('index.php');
@@ -13,16 +13,19 @@ $country = db_fetch_assoc($countries_result);
 $errors = array();
 
 if(is_post_request()) {
+  if(request_is_same_domain() && csrf_token_is_valid()) {
+    // Confirm that values are present before accessing them.
+    if(isset($_POST['name'])) { $country['name'] = $_POST['name']; }
+    if(isset($_POST['code'])) { $country['code'] = $_POST['code']; }
 
-  // Confirm that values are present before accessing them.
-  if(isset($_POST['name'])) { $country['name'] = $_POST['name']; }
-  if(isset($_POST['code'])) { $country['code'] = $_POST['code']; }
-
-  $result = update_country($country);
-  if($result === true) {
-    redirect_to('show.php?id=' . $country['id']);
+    $result = update_country($country);
+    if($result === true) {
+      redirect_to('show.php?id=' . $country['id']);
+    } else {
+      $errors = $result;
+    }
   } else {
-    $errors = $result;
+    $errors[] = "Error: Bad request";
   }
 }
 ?>
@@ -41,6 +44,7 @@ if(is_post_request()) {
     <input type="text" name="name" value="<?php echo h($country['name']); ?>" /><br />
     Code:<br />
     <input type="text" name="code" value="<?php echo h($country['code']); ?>" /><br />
+    <?php echo csrf_token_tag(); ?>
     <br />
     <input type="submit" name="submit" value="Update"  />
   </form>

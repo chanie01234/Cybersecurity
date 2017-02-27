@@ -1,5 +1,5 @@
 <?php
 require_once('../../../private/initialize.php');
-function require_login();
+require_login();
 ?>
 <?php redirect_to('../index.php'); ?>

@@ -1,6 +1,6 @@
 <?php
 require_once('../../../private/initialize.php');
-function require_login();
+require_login();
 if(!isset($_GET['id'])) {
   redirect_to('index.php');
 }
@@ -12,19 +12,21 @@ $salesperson = db_fetch_assoc($salespeople_result);
 $errors = array();
 
 if(is_post_request()) {
+  if(request_is_same_domain() && csrf_token_is_valid()) {
+    // Confirm that values are present before accessing them.
+    if(isset($_POST['first_name'])) { $salesperson['first_name'] = $_POST['first_name']; }
+    if(isset($_POST['last_name'])) { $salesperson['last_name'] = $_POST['last_name']; }
+    if(isset($_POST['phone'])) { $salesperson['phone'] = $_POST['phone']; }
+    if(isset($_POST['email'])) { $salesperson['email'] = $_POST['email']; }
 
-  // Confirm that values are present before accessing them.
-  if(isset($_POST['first_name'])) { $salesperson['first_name'] = $_POST['first_name']; }
-  if(isset($_POST['last_name'])) { $salesperson['last_name'] = $_POST['last_name']; }
-  if(isset($_POST['phone'])) { $salesperson['phone'] = $_POST['phone']; }
-  if(isset($_POST['email'])) { $salesperson['email'] = $_POST['email']; }
-
-
-  $result = update_salesperson($salesperson);
-  if($result === true) {
-    redirect_to('show.php?id=' . $salesperson['id']);
+    $result = update_salesperson($salesperson);
+    if($result === true) {
+      redirect_to('show.php?id=' . $salesperson['id']);
+    } else {
+      $errors = $result;
+    }
   } else {
-    $errors = $result;
+    $errors[] = "Error: Bad request";
   }
 }
 ?>
@@ -47,6 +49,7 @@ if(is_post_request()) {
     <input type="text" name="phone" value="<?php echo h($salesperson['phone']); ?>" /><br />
     Email:<br />
     <input type="text" name="email" value="<?php echo h($salesperson['email']); ?>" /><br />
+    <?php echo csrf_token_tag(); ?>
     <br />
     <input type="submit" name="submit" value="Update"  />
   </form>

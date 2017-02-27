@@ -1,6 +1,7 @@
 <?php
 require_once('../../../private/initialize.php');
-function require_login();
+require_login();
+
 if(!isset($_GET['id'])) {
   redirect_to('../index.php');
 }
@@ -12,19 +13,22 @@ $state = db_fetch_assoc($states_result);
 $errors = array();
 
 if(is_post_request()) {
+  if(request_is_same_domain() && csrf_token_is_valid()) {
+      // Confirm that values are present before accessing them.
+      if(isset($_POST['name'])) { $state['name'] = $_POST['name']; }
+      if(isset($_POST['code'])) { $state['code'] = $_POST['code']; }
+      if(isset($_POST['country_id'])) { $state['country_id'] = $_POST['country_id']; }
 
-  // Confirm that values are present before accessing them.
-  if(isset($_POST['name'])) { $state['name'] = $_POST['name']; }
-  if(isset($_POST['code'])) { $state['code'] = $_POST['code']; }
-  if(isset($_POST['country_id'])) { $state['country_id'] = $_POST['country_id']; }
-
-  $result = update_state($state);
-  if($result === true) {
-    redirect_to('show.php?id=' . $state['id']);
-  } else {
-    $errors = $result;
+      $result = update_state($state);
+      if($result === true) {
+        redirect_to('show.php?id=' . $state['id']);
+      } else {
+        $errors = $result;
+      }
+    } else {
+      $errors[] = "Error: Bad request";
+    }
   }
-}
 ?>
 <?php $page_title = 'Staff: Edit State ' . $state['name']; ?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
@@ -43,6 +47,7 @@ if(is_post_request()) {
     <input type="text" name="code" value="<?php echo h($state['code']); ?>" /><br />
     Country ID:<br />
     <input type="text" name="country_id" value="<?php echo h($state['country_id']); ?>" /><br />
+    <?php echo csrf_token_tag(); ?>
     <br />
     <input type="submit" name="submit" value="Update"  />
   </form>

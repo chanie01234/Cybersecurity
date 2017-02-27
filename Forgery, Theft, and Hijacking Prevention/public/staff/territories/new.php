@@ -1,6 +1,6 @@
 <?php
 require_once('../../../private/initialize.php');
-function require_login();
+require_login();
 if(!isset($_GET['id'])) {
   redirect_to('../index.php');
 }
@@ -14,17 +14,20 @@ $territory = array(
 );
 
 if(is_post_request()) {
+  if(request_is_same_domain() && csrf_token_is_valid()) {
+    // Confirm that values are present before accessing them.
+    if(isset($_POST['name'])) { $territory['name'] = $_POST['name']; }
+    if(isset($_POST['position'])) { $territory['position'] = $_POST['position']; }
 
-  // Confirm that values are present before accessing them.
-  if(isset($_POST['name'])) { $territory['name'] = $_POST['name']; }
-  if(isset($_POST['position'])) { $territory['position'] = $_POST['position']; }
-
-  $result = insert_territory($territory);
-  if($result === true) {
-    $new_id = db_insert_id($db);
-    redirect_to('show.php?id=' . $new_id);
+    $result = insert_territory($territory);
+    if($result === true) {
+      $new_id = db_insert_id($db);
+      redirect_to('show.php?id=' . $new_id);
+    } else {
+      $errors = $result;
+    }
   } else {
-    $errors = $result;
+    $errors[] = "Error: Bad request";
   }
 }
 ?>
@@ -43,6 +46,7 @@ if(is_post_request()) {
     <input type="text" name="name" value="<?php echo h($territory['name']); ?>" /><br />
     Position:<br />
     <input type="text" name="position" value="<?php echo h($territory['position']); ?>" /><br />
+    <?php echo csrf_token_tag(); ?>
     <br />
     <input type="submit" name="submit" value="Create"  />
   </form>
