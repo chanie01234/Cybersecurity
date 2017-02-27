@@ -6,26 +6,26 @@ Time spent: 14 hours spent in total
 
 The following **required** functionality is completed:
 
-1\. [ ]  Required: Test for initial vulnerabilities
+1\. [x]  Required: Test for initial vulnerabilities
 
-2\. [ ]  Required: Configure sessions
-  * [ ]  Required: Only allow session IDs to come from cookies
-  * [ ]  Required: Expire after one day
-  * [ ]  Required: Use cookies which are marked as HttpOnly
+2\. [x]  Required: Configure sessions
+  * [x]  Required: Only allow session IDs to come from cookies
+  * [x]  Required: Expire after one day
+  * [x]  Required: Use cookies which are marked as HttpOnly
 
-3\. [ ]  Required: Complete Login page.
-  * [ ]  Required: Show an error message when username is not found.
-  * [ ]  Required: Show an error message when username is found but password does not match.
-  * [ ]  Required: After login, store user ID in session data.
-  * [ ]  Required: After login, store user last login time in session data.
-  * [ ]  Required: Regenerate the session ID at the appropriate point.
+3\. [x]  Required: Complete Login page.
+  * [x]  Required: Show an error message when username is not found.
+  * [x]  Required: Show an error message when username is found but password does not match.
+  * [x]  Required: After login, store user ID in session data.
+  * [x]  Required: After login, store user last login time in session data.
+  * [x]  Required: Regenerate the session ID at the appropriate point.
 
-4\. [ ]  Required: Require login to access staff area pages.
-  * [ ]  Required: Add a login requirement to *almost all* staff area pages.
-  * [ ]  Required: Write code for `last_login_is_recent()`.
+4\. [x]  Required: Require login to access staff area pages.
+  * [x]  Required: Add a login requirement to *almost all* staff area pages.
+  * [x]  Required: Write code for `last_login_is_recent()`.
 
-5\. [ ]  Required: Complete Logout page.
-  * [ ]  Required: Add code to destroy the user's session file after logging out.
+5\. [x]  Required: Complete Logout page.
+  * [x]  Required: Add code to destroy the user's session file after logging out.
 
 6\. [ ]  Required: Add CSRF protections to the state forms.
   * [ ]  Required: Create a CSRF token.
