@@ -1,5 +1,6 @@
 <?php
 require_once('../../../private/initialize.php');
+function require_login();
 ?>
 
 <?php $page_title = 'Staff: Users'; ?>

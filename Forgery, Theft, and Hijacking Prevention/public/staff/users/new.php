@@ -1,6 +1,6 @@
 <?php
 require_once('../../../private/initialize.php');
-
+function require_login();
 // Set default values for all variables the page needs.
 $errors = array();
 $user = array(
