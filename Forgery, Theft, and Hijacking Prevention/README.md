@@ -1,6 +1,6 @@
 # Project 4 - Forgery, Theft, and Hijacking Prevention
 
-Time spent: 14 hours spent in total
+Time spent: **8** hours spent in total
 
 ## User Stories
 
@@ -27,23 +27,23 @@ The following **required** functionality is completed:
 5\. [x]  Required: Complete Logout page.
   * [x]  Required: Add code to destroy the user's session file after logging out.
 
-6\. [ ]  Required: Add CSRF protections to the state forms.
-  * [ ]  Required: Create a CSRF token.
-  * [ ]  Required: Add CSRF tokens to forms.
-  * [ ]  Required: Compare tokens against the stored version of the token.
-  * [ ]  Required: Only process forms data sent by POST requests.
-  * [ ]  Required: Confirm request referer is from the same domain as the host.
-  * [ ]  Required: Store the CSRF token in the user's session.
-  * [ ]  Required: Add the same CSRF token to the login form as a hidden input.
-  * [ ]  Required: When submitted, confirm that session and form tokens match.
-  * [ ]  Required: If tokens do not match, show an error message.
-  * [ ]  Required: Make sure that a logged-in user can use pages as expected.
+6\. [x]  Required: Add CSRF protections to the state forms.
+  * [x]  Required: Create a CSRF token.
+  * [x]  Required: Add CSRF tokens to forms.
+  * [x]  Required: Compare tokens against the stored version of the token.
+  * [x]  Required: Only process forms data sent by POST requests.
+  * [x]  Required: Confirm request referer is from the same domain as the host.
+  * [x]  Required: Store the CSRF token in the user's session.
+  * [x]  Required: Add the same CSRF token to the login form as a hidden input.
+  * [x]  Required: When submitted, confirm that session and form tokens match.
+  * [x]  Required: If tokens do not match, show an error message.
+  * [x]  Required: Make sure that a logged-in user can use pages as expected.
 
-7\. [ ]  Required: Ensure the application is not vulnerable to XSS attacks.
+7\. [x]  Required: Ensure the application is not vulnerable to XSS attacks.
 
-8\. [ ]  Required: Ensure the application is not vulnerable to SQL Injection attacks.
+8\. [x]  Required: Ensure the application is not vulnerable to SQL Injection attacks.
 
-9\. [ ]  Required: Run all tests from Objective 1 again and confirm that your application is no longer vulnerable to any test.
+9\. [x]  Required: Run all tests from Objective 1 again and confirm that your application is no longer vulnerable to any test.
 
 
 The following advanced user stories are optional:
@@ -69,7 +69,7 @@ The following advanced user stories are optional:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/[enter_img_here].gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
