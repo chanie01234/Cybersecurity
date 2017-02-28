@@ -24,6 +24,7 @@
   // by comparing it to the time a token was last generated.
   function csrf_token_is_recent() {
     // TODO add code to determine if csrf token is recent
+
     return true;
   }
 

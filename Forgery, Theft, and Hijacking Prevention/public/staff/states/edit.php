@@ -25,9 +25,8 @@ if(is_post_request()) {
       } else {
         $errors = $result;
       }
-    } else {
-      $errors[] = "Error: Bad request";
-    }
+  } else {
+    $errors[] = "Error: Bad request";
   }
 ?>
 <?php $page_title = 'Staff: Edit State ' . $state['name']; ?>

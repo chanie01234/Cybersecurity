@@ -30,8 +30,6 @@
   // Determines if the request should be considered a "recent"
   // request by comparing it to the user's last login time.
 
-  $_SESSION['last_login'] = time();
-
   function last_login_is_recent() {
     // TODO add code to determine if last login is recent
     $recent_limit = 60 * 60 * 24 * 1; // 1 day
@@ -41,7 +39,6 @@
 
   // Checks to see if the user-agent string of the current request
   // matches the user-agent string used when the user last logged in.
-  $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 
   function user_agent_matches_session() {
     // TODO add code to determine if user agent matches session
@@ -53,7 +50,7 @@
   // Inspects the session to see if it should be considered valid.
   function session_is_valid() {
     if(!last_login_is_recent()) { return false; }
-    if(!user_agent_matches_session()) { return false; }
+    // if(!user_agent_matches_session()) { return false; }
     return true;
   }
 
@@ -67,7 +64,7 @@
     // - Its presence indicates the user is logged in.
     // - Its value tells which user for looking up their record.
     if(!isset($_SESSION['user_id'])) { return false; }
-    if(!session_is_valid()) { return false; }
+    //if(!session_is_valid()) { return false; }
     return true;
   }
 
