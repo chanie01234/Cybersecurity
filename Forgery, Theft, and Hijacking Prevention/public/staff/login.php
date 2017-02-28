@@ -45,12 +45,12 @@ if(is_post_request()) {
     } else {
       // No username found
       // TODO write an error message
-      $errors[] = "No username found"; 
+      $errors[] = "No username found";
     }
   }
 }
-
 ?>
+
 <?php $page_title = 'Log in'; ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 <div id="menu">
@@ -66,7 +66,7 @@ if(is_post_request()) {
 
   <form action="login.php" method="post">
     Username:<br />
-    <input type="text" name="username" value="<?php echo $username; ?>" /><br />
+    <input type="text" name="username" value="" /><br />
     Password:<br />
     <input type="password" name="password" value="" /><br />
     <input type="submit" name="submit" value="Submit"  />
