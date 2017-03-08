@@ -1,43 +1,67 @@
 # Project 5 - Encryption
 
-Time spent: **X** hours spent in total
+Time spent: **6** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
 1\. Symmetric Encrypt/Decrypt
-  * [ ]  Required: Repair the symmetric encrypt and decrypt code
+  * [x]  Required: Repair the symmetric encrypt and decrypt code
 
 2\. Encrypted Message 1
-  * [ ]  Required: Decrypt the government message
-  * [ ]  Required: Encrypt a response and include in this README
+  * [x]  Required: Decrypt the government message
+  * [x]  Required: Encrypt a response and include in this README
+        My message: puauB2Q8BRbI9LTHoUnqxaNME8QDKA+XLldDsNx2qjk=
 
 3\. Generate Public-Private Keys
-  * [ ]  Required: Repair the key generator code
-  * [ ]  Required: Generate keys for "johnsteed" and add him to the Agent Directory
+  * [x]  Required: Repair the key generator code
+  * [x]  Required: Generate keys for "johnsteed" and add him to the Agent Directory
 
 4\. Asymmetric Encrypt/Decrypt
-  * [ ]  Required: Repair the asymmetric encrypt and decrypt code
+  * [x]  Required: Repair the asymmetric encrypt and decrypt code
 
 5\. Create/Verify Signature
-  * [ ]  Required: Repair the create and verify signature code
+  * [x]  Required: Repair the create and verify signature code
 
 6\. Encrypted Message 2
-  * [ ]  Required: Decrypt the message
-  * [ ]  Required: Verify the message
-  * [ ]  Required: Include a response message in this README
+  * [x]  Required: Decrypt the message
+  * [x]  Required: Verify the message
+  * [x]  Required: Include a response message in this README
+My message:
+
+To: sydneybristow
+
+From: agent99
+
+Subject: Re: Encrypted and Signed Message
+
+Body:
+ddLJvwuGg3Z4X0UpXELJciGCSzP5n+odaYi4irka+ban+5Fi+Jwp9fRAD3LRlBVqclhwltVIhaqBWh/EMVACCNEEwOAW5H6aKNjMxJe6UZ99bMChwEFZ4h4o58k98mtplIisVJrUCeS5MeW2g04a1qDaJ4/eMEysUQs3jfYT+hoUpRIwGmguubNWBqsHBKgHYiUGDov1Mhw8EjHQlPl2qXbQ98OrSFU82vplPu9Z7TnFqJatM/23T+pT4NDeBs8X9sL+ISYnLj1R8QVZ9PVAjlT5Tk/HOyfB0nE5BNCe7PLJpIHyVA6Rj75sPupYY2QGKbgv1hftoHY96UOjoQE7TA==
+
+Signature:
+o1+ANvfKksfGlbsA46DgQuUYtXBknWzW2+3tfiz84i2prCwjBBUC9s1i3/mMKJRqrEGpMkTA7kGGwnHP1YuOVTFqMWiOG1WUtvhPgOe5vY116WHn6nzX7ssOQnlHn5FB5S44mP2KpL8TVJdxL48hixmhW78RXMSVtbmk8YVHmxR3TYDC49sqs7gHOXR3pA4NHYKfqOq8R4yqqg8VeQATlQ1Qk8DpsUfLOo06eJMAPG6bXGXiRJxPzINBuMtBfruIuHpSjqGdFnuMRknkOMP65h9oAChMDPbxCbtkimlYQW1LbxqWizMFiHmh499tkF0xZ638l7k5NqTGqTERxKxzVA==
+
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyKNvqGv5ROD2h3HQLJTE
+U/MDNGrBMSEfIzftA4hUtsSGgngN1cpYuaQbt93rkzNbxvV11oN0laHrXMpB35Gw
+IZyd5pSLYJovWGeW6PAX4T2z313prdTktbiixr39exqMDuKnnBIq4qHmbHozgL6P
+kBHCY8DcnfR44v3cjb/G76SstVuoEsEoBDrMXgXzR/5y7iPJ+Lbia8UgT6sccGB3
+FrPeXgJtaXd0lW2CQFYMOFdZeNfF5Wz/vpig5OMshFQjhydXjJmYUqFrOiK2ZUYT
+sz0HV3pYEuDU8u0hjS/qaguenh6L7RjVQAKWXg2/suZ3JZf1cdxayDUz5fl+Bdjt
+xwIDAQAB
+-----END PUBLIC KEY-----
 
 7\. Agent Messages
-  * [ ]  Required: Repair the dropbox code
-  * [ ]  Required: Repair the messages area
-  * [ ]  Required: Display encrypted messages for all agents
-  * [ ]  Required: Messages indicate whether the message signature is valid
-  * [ ]  Required: Your messages are automatically decrypted
+  * [x]  Required: Repair the dropbox code
+  * [x]  Required: Repair the messages area
+  * [x]  Required: Display encrypted messages for all agents
+  * [x]  Required: Messages indicate whether the message signature is valid
+  * [x]  Required: Your messages are automatically decrypted
 
 8\. Identify the Double Agent
-  * [ ]  Required: Decrypt as many email messages as possible
-  * [ ]  Required: Identify the double agent: ____________________
+  * [x]  Required: Decrypt as many email messages as possible
+  * [x]  Required: Identify the double agent: Natasha, the fool
 
 The following objectives are **optional**:
 
@@ -59,7 +83,7 @@ The following objectives are **optional**:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/[enter_img_here].gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/anZ3cJA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
