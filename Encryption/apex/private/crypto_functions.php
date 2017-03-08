@@ -14,11 +14,11 @@ function key_encrypt($string, $key, $cipher_method=CIPHER_METHOD) {
   // initial settings of the algorithm, making it harder to decrypt.
   // Start by finding the correct size of an initialization vector
   // for this cipher method.
-  $iv_length = openssl_cipher_iv_length(CIPHER_METHOD);
+  $iv_length = openssl_cipher_iv_length($cipher_method);
   $iv = openssl_random_pseudo_bytes($iv_length);
 
   // Encrypt
-  $encrypted = openssl_encrypt($plaintext, CIPHER_METHOD, $key, OPENSSL_RAW_DATA, $iv);
+  $encrypted = openssl_encrypt($string, $cipher_method, $key, OPENSSL_RAW_DATA, $iv);
 
   // Return $iv at front of string, need it for decoding
   $message = $iv . $encrypted;
@@ -73,24 +73,40 @@ function generate_keys($config=PUBLIC_KEY_CONFIG) {
 }
 
 function pkey_encrypt($string, $public_key) {
-  return 'Qnex Funqbj jvyy or jngpuvat lbh';
+  //TODO Use PHP's OpenSSL functions to encrypt using the public key.
+  openssl_public_encrypt($string, $encrypted, $public_key);
+  $message = base64_encode($encrypted);
+  // Use base64_encode to make contents viewable/sharable
+  return $message;
 }
 
 function pkey_decrypt($string, $private_key) {
-  return 'Alc evi csy pssomrk livi alir csy wlsyph fi wezmrk ETIB?';
-}
+  //TODO Use PHP's OpenSSL functions to decrypt using the private key.
 
+  // Decode from base64 to get raw data
+  $ciphertext = base64_decode($string);
+
+  openssl_private_decrypt($ciphertext, $decrypted, $private_key);
+
+  return $decrypted;
+}
 
 // Digital signatures using public/private keys
 
 function create_signature($data, $private_key) {
-  // A-Za-z : ykMwnXKRVqheCFaxsSNDEOfzgTpYroJBmdIPitGbQUAcZuLjvlWH
-  return 'RpjJ WQL BImLcJo QLu dQv vJ oIo Iu WJu?';
+  //TODO Use PHP's OpenSSL functions to sign the data with the private key.
+
+  openssl_sign($data, $raw_signature, $private_key);
+  return base64_encode($raw_signature);
 }
 
 function verify_signature($data, $signature, $public_key) {
-  // Vigenère
-  return 'RK, pym oays onicvr. Iuw bkzhvbw uedf pke conll rt ZV nzxbhz.';
+  //TODO Use PHP's OpenSSL functions to verify using the public key.
+
+  $raw_signature = base64_decode($signature);
+  // returns 1 if data and signature match
+  // returns 0 if data and signature do not match
+  return openssl_verify($data, $raw_signature, $public_key);
 }
 
 ?>
