@@ -37,6 +37,10 @@ Time spent: 11 hours spent in total
     - Fixed in version: 4.2.4
   - [x] GIF Walkthrough: <img src='http://i.imgur.com/MgHSQ53.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
   - [x] Steps to recreate:
+        1. create a post for my wordpress blog
+        1. passed a string of new tag attributes to an HTML link by sending "<a href='/wp-admin/' title="" style="position:absolute;top:0;left:0;width:100%;height:100%;display:block;" onmouseover=alert(1)//'>Test</a>" in a post comment. (as a result, i got a link that redirected me back to wp-admin) This string was passed successfully with javascript embedded
+        1. To bypass filters that were in place to disallow javascript from being executed, I passed this string into post's comment: "<a href='/wp-admin/' title="" style="position:absolute;top:0;left:0;width:100%;height:100%;display:block;" onmouseover=alert(1)//'>Test</a>".
+        1. As opposed to step 2, step 3 created a block that initiated a prompt every time the user hovers over the area. If you click on the page, you will be redirected to the wp-admin page. 
   - [x] Affected source code:
     - [Link 1](https://core.trac.wordpress.org/changeset/33549)
   - [x] Links:
