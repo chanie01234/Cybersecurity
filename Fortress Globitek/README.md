@@ -14,6 +14,7 @@ Time spent: **X** hours spent in total
 ### Vulnerabilities
 
 Describe the vuln(s) here.
+<<<<<<< HEAD
 
 ## Notes
 
@@ -34,3 +35,5 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+=======
+>>>>>>> e25d41a2f83fc485fe8162cba7449769a437de6d
