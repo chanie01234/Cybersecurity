@@ -1,16 +1,16 @@
 # Project 10 - Honeypot
 
-Time spent: 8 hours spent in total
+Time spent: 7 hours spent in total
 
 > Objective: Setup a honeypot and provide a working demonstration of its features.
 
 ### Required: Overview & Setup
 
 - [x] A basic writeup (250-500 words) describing the overall approach, resources/tools used, findings,etc. when setting up the honeypot.
-	- Summary: My overall approach to Honeypots is to first understand the functionalities and uses of the Honeypot. There are multiple honeypots for most languages and almost every purpose according to the developer. From the resources provided, honeypots are a great way to analyze, attack, and prevent threats toward a user, organization, etc. Implementing a Honeypot is fairly easy and provide the flexibility of serving the purpose of the developer. For this assignment, I set up my honeypot using a server on virtualbox. Through this, I can use my server to detect attacks, ports, country of origin of any attack placed on the server using nmap, a hacking tool that sends malicious packets and records the responses of the a system, web app, etc.
+	- Summary: My overall approach to Honeypots is to first understand the functionalities and uses of the Honeypot. There are multiple honeypots for most languages and almost every purpose according to the developer. From the resources provided, honeypots are a great way to analyze, attack, and prevent threats toward a user, organization, etc. Implementing a Honeypot is fairly easy and provide the flexibility of serving the purpose of the developer. For this assignment, I set up my honeypot using a server and a target(honeypot) on virtualbox. Through this, I can use my mhn server to detect types of attacks, ports, country of origin of any attack placed on the honeypot. Using nmap, a hacking tool that sends malicious packets and records the responses of the a system, web app, etc., I was able to launch an attack on my honeypot. I was able to witness the power of a honeypot and it's use in everyday cyber security. Of course, there are ways to conceal your identity via IP address and country of origin via "proxy servers" so that the attacker remains anonymous. After the attack was launched, I was able to keep track of my attacks using the Attacks Report page on the MHN server. Here, lists date/time of detection, country of origin, source IP address, destination port, protocol, type of honeypot that detected the attack. Analyzing this report can reveal tremendous information about the attack and attacker. There are multiple honeypots you can use at a time to gather various information about an attack and to prevent it from appearing in your crosshairs ever again. 
 
 - [x] A specific, reproducible honeypot setup, ideally automated. There are several possibilities for this:
-	- A Vagrantfile or Dockerfile which provisions the honeypot as a VM or container **my-approach**
+	- A Vagrantfile or Dockerfile which provisions the honeypot as a VM or container <= **my-approach**
 	- A bash script that installs and configures the honeypot for a specific OS
 	- Alternatively, **detailed** notes added to the `README.md` regarding the setup, requirements, features, etc.
 
