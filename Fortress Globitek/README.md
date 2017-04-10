@@ -14,7 +14,6 @@ Time spent: **X** hours spent in total
 ### Vulnerabilities
 
 Describe the vuln(s) here.
-<<<<<<< HEAD
 
 ## Notes
 
