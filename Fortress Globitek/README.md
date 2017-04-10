@@ -1,6 +1,6 @@
 # Project 10 - Fortress Globitek
 
-Time spent: **X** hours spent in total
+Time spent: 5 hours spent in total
 
 > Objective: Create an intentionally vulnerable version of the Globitek application with a secret that can be stolen.
 
