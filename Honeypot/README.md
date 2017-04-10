@@ -19,11 +19,11 @@ Time spent: 8 hours spent in total
 - [x] A basic writeup of the attack (what offensive tools were used, what specifically was detected by the honeypot)
 	- Summary: I used nmap is attack the target aka Honeypot. Nmap is a hacking tool that sends malicious packets and records the responses of the Honeypot. This recorded on the MHN Server site. I used Dionea, a honeypot that aims to capture malware that exploits vulnerabilities exposed by services offered over a network. Whatever was caught in the Honeypot is displayed in the Attacks section of the site where the date/time, sensor, country of origin, source IP address, destination port, protocol, and type of honeypot.
 
-- [ ] An example of the data captured by the honeypot (example: IDS logs including IP, request paths, alerts triggered)
-<img src='http://imgur.com/BR6FZf6' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+- [x] An example of the data captured by the honeypot (example: IDS logs including IP, request paths, alerts triggered)
+<img src='http://i.imgur.com/BR6FZf6.png' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-- [ ] A screen-cap of the attack being conducted:
-<img src='http://imgur.com/w1EUokc' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+- [x] A screen-cap of the attack being conducted:
+<img src='http://i.imgur.com/w1EUokc.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ### Optional: Features
 - Honeypot
